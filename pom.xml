@@ -8,6 +8,7 @@
     <artifactId>eux-journal</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
+
     <modules>
         <module>eux-journal-openapi</module>
         <module>eux-journal-model</module>

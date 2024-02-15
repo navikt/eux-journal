@@ -63,9 +63,9 @@ spec:
     - name: CLIENT_EUXNAVRINASAK_SCOPE
       value: {{ client.euxnavrinasak.scope }}
 
-    - name: CLIENT_OPPGAVE_ENDPOINT
+    - name: CLIENT_EUXOPPGAVE_ENDPOINT
       value: {{ client.euxoppgave.endpoint }}
-    - name: CLIENT_OPPGAVE_SCOPE
+    - name: CLIENT_EUXOPPGAVE_SCOPE
       value: {{ client.euxoppgave.scope }}
 
     - name: CLIENT_SAF_ENDPOINT

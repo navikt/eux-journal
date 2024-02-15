@@ -9,14 +9,27 @@ application:
   eux-neessi:
     name: eux-neessi
     namespace: eessibasis
+
   eux-fagmodul-journalfoering:
     name: eux-fagmodul-journalfoering
     namespace: eessibasis
 
 client:
-  oppgave:
-    endpoint: https://oppgave.prod-fss-pub.nais.io
-    scope: api://prod-fss.oppgavehandtering.oppgave/.default
+  euxnavrinasak:
+    url: http://eux-nav-rinasak
+    scope: api://prod-gcp.eessibasis.eux-nav-rinasak/.default
+
+  euxoppgave:
+    endpoint: http://eux-oppgave
+    scope: api://dev-gcp.eessibasis.eux-oppgave/.default
+
+  saf:
+    url: https://saf.prod-fss-pub.nais.io
+    scope: api://prod-fss.teamdokumenthandtering.saf/.default
+
+  dokarkiv:
+    url: https://dokarkiv.prod-fss-pub.nais.io
+    scope: api://prod-fss.teamdokumenthandtering.dokarkiv/.default
 
 cluster:
   fss: prod-fss

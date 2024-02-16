@@ -1,0 +1,31 @@
+{
+  "data": {
+    "tilknyttedeJournalposter": [
+      {
+        "journalpostId": "453802639",
+        "journalstatus": "MOTTATT",
+        "journalposttype": "U",
+        "eksternReferanseId": "1444520_aa7d09fc470c4b86af9d315d12f5a3aa_1",
+        "dokumenter": [
+          {
+            "dokumentInfoId": "454221907",
+            "tittel": "1",
+            "brevkode": "1"
+          }
+        ]
+      },
+      {
+        "journalpostId": "1234",
+        "journalstatus": "MOTTATT",
+        "eksternReferanseId": "1444520_aa7d09fc470c4b86af9d315d12f5a3ab_1",
+        "dokumenter": [
+          {
+            "dokumentInfoId": "1234",
+            "tittel": "1",
+            "brevkode": "1"
+          }
+        ]
+      }
+    ]
+  }
+}

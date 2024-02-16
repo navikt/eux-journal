@@ -1,0 +1,56 @@
+no.nav.security.jwt:
+  expirythreshold: 1
+  issuer:
+    azuread:
+      discoveryurl: http://localhost:${mock-oauth2-server.port}/issuer1/.well-known/openid-configuration
+      accepted_audience: demoapplication
+
+  client:
+    registration:
+
+      eux-oppgave-credentials:
+        token-endpoint-url: http://localhost:9500/mock/oauth2/v2.0/token
+        grant-type: urn:ietf:params:oauth:grant-type:jwt-bearer
+        scope: test
+        authentication:
+          client-id: testclient
+          client-secret: testsecret
+          client-auth-method: client_secret_basic
+
+      eux-nav-rinasak-credentials:
+        token-endpoint-url: http://localhost:9500/mock/oauth2/v2.0/token
+        grant-type: urn:ietf:params:oauth:grant-type:jwt-bearer
+        scope: test
+        authentication:
+          client-id: testclient
+          client-secret: testsecret
+          client-auth-method: client_secret_basic
+
+      saf-credentials:
+        token-endpoint-url: http://localhost:9500/mock/oauth2/v2.0/token
+        grant-type: urn:ietf:params:oauth:grant-type:jwt-bearer
+        scope: test
+        authentication:
+          client-id: testclient
+          client-secret: testsecret
+          client-auth-method: client_secret_basic
+
+      dokarkiv-credentials:
+        token-endpoint-url: http://localhost:9500/mock/oauth2/v2.0/token
+        grant-type: urn:ietf:params:oauth:grant-type:jwt-bearer
+        scope: test
+        authentication:
+          client-id: testclient
+          client-secret: testsecret
+          client-auth-method: client_secret_basic
+
+spring:
+  flyway:
+    clean-disabled: false
+    clean-on-validation-error: true
+
+endpoint:
+  euxnavrinasak: http://localhost:9500/mock
+  euxoppgave: http://localhost:9500/mock
+  saf: http://localhost:9500/mock
+  dokarkiv: http://localhost:9500/mock

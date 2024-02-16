@@ -18,7 +18,7 @@ class DokarkivClient(
     fun settStatusAvbryt(journalpostId: String){
         dokarkivRestTemplate
             .patch()
-            .uri("${uri}/{journalpostId}/feilregistrer/settStatusAvbryt")
+            .uri("${uri}/${journalpostId}/feilregistrer/settStatusAvbryt")
             .accept(MediaType.ALL)
             .retrieve()
             .toBodilessEntity()

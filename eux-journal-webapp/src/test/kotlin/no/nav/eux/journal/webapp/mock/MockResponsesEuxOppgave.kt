@@ -1,0 +1,26 @@
+package no.nav.eux.journal.webapp.mock
+
+import com.fasterxml.jackson.databind.ObjectMapper
+import okhttp3.mockwebserver.MockResponse
+
+fun tildelEnhetsnrResponse(body: String): MockResponse {
+    val journalpostId = ObjectMapper()
+        .readTree(body)
+        .findValue("journalpostId")
+        .asText()
+    val tildeltEnhetsnr = ObjectMapper()
+        .readTree(body)
+        .findValue("tildeltEnhetsnr")
+        .asText()
+    if (listOf("453802638", "453802639").contains(journalpostId) && tildeltEnhetsnr == "2950") {
+        println("Det ble utført tildeling av enhetsnr $tildeltEnhetsnr for journalpostId $journalpostId")
+        return MockResponse().apply {
+            setResponseCode(200)
+        }
+    } else {
+        println("Det ble utført tildeling av enhetsnr $tildeltEnhetsnr for journalpostId $journalpostId")
+        return MockResponse().apply {
+            setResponseCode(500)
+        }
+    }
+}

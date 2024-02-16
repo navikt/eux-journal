@@ -1,8 +1,9 @@
 package no.nav.eux.journal.integration.client.eux.oppgave
 
-import no.nav.eux.journal.integration.config.patch
+import no.nav.eux.journal.integration.config.post
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.http.MediaType
+import org.springframework.http.MediaType.APPLICATION_JSON
 import org.springframework.stereotype.Component
 import org.springframework.web.client.RestTemplate
 
@@ -13,10 +14,12 @@ class EuxOppgaveClient(
     val euxOppgaveRestTemplate: RestTemplate
 ) {
 
-    fun tildelEnhetsnr(enhetsnr: String){
+    fun tildelEnhetsnr(journalpostId: String, enhetsnr: String) {
         euxOppgaveRestTemplate
-            .patch()
+            .post()
             .uri("${euxOppgaveUrl}/api/v1/oppgave/tildelEnhetsnr")
+            .body(TildelEnhetsnr(journalpostId = journalpostId, tildeltEnhetsnr = enhetsnr))
+            .contentType(APPLICATION_JSON)
             .accept(MediaType.ALL)
             .retrieve()
             .toBodilessEntity()

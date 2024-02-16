@@ -65,6 +65,7 @@ class IntegrationConfig {
 
 fun RestTemplate.restClient() = RestClient.create(this)
 fun RestTemplate.post() = restClient().post()
+fun RestTemplate.get() = restClient().get()
 fun RestTemplate.patch() = restClient().patch()
 
 data class RestTemplateComponents(

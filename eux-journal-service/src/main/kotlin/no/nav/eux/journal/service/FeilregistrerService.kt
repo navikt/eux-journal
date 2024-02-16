@@ -65,7 +65,10 @@ class FeilregistrerJournalpostService(
 
     fun DokumentPair.tildelEnhetsnr() =
         try {
-            euxOppgaveClient.tildelEnhetsnr(navDriftOgUtviklingAdministrativeTjenester)
+            euxOppgaveClient.tildelEnhetsnr(
+                journalpostId = journalpost.journalpostId,
+                enhetsnr = navDriftOgUtviklingAdministrativeTjenester,
+            )
             val beskrivelse = "Oppgave flyttet til enhetsnr $navDriftOgUtviklingAdministrativeTjenester."
             log.info { beskrivelse }
             Feilregistrering(

@@ -18,9 +18,9 @@ fun getOppgaverResponse() =
         setBody(getOppgaverResponse)
     }
 
-val oppgaverResponse = object {}.javaClass.getResource("/dataset/oppgave/oppgave.json")!!.readText()
+val oppgaverResponse = object {}.javaClass.getResource("/dataset/eux-oppgave/oppgave.json")!!.readText()
 
-val getOppgaverResponse = object {}.javaClass.getResource("/dataset/oppgave/oppgaver.json")!!.readText()
+val getOppgaverResponse = object {}.javaClass.getResource("/dataset/eux-oppgave/oppgaver.json")!!.readText()
 
 const val getOppgaverUri = "/api/v1/oppgaver" +
         "?journalpostId=1234&statuskategori=AAPEN&oppgavetype=JFR&oppgavetype=FDR"

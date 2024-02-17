@@ -1,6 +1,6 @@
 package no.nav.eux.journal.webapp
 
-import no.nav.eux.journal.model.Feilregistrering
+import no.nav.eux.journal.model.entity.Feilregistrering
 import no.nav.eux.journal.model.common.toEnum
 import no.nav.eux.journal.openapi.model.RinasakFeilregistrerJournalposterResponsOpenApiType
 import no.nav.eux.journal.openapi.model.RinasakFeilregistreringOpenApiType

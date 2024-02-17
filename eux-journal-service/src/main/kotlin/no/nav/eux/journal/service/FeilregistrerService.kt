@@ -9,8 +9,9 @@ import no.nav.eux.journal.integration.client.saf.SafClient
 import no.nav.eux.journal.integration.client.saf.SafJournalpost
 import no.nav.eux.journal.integration.client.saf.SafJournalposttype.I
 import no.nav.eux.journal.integration.client.saf.SafJournalposttype.U
-import no.nav.eux.journal.model.Feilregistrering
-import no.nav.eux.journal.model.FeilregistreringStatus.*
+import no.nav.eux.journal.model.entity.Feilregistrering
+import no.nav.eux.journal.model.entity.FeilregistreringStatus.*
+import no.nav.eux.journal.persistence.FeilregistreringRepository
 import org.springframework.stereotype.Component
 
 @Component
@@ -18,7 +19,9 @@ class FeilregistrerJournalpostService(
     val dokarkivClient: DokarkivClient,
     val safClient: SafClient,
     val euxOppgaveClient: EuxOppgaveClient,
-    val euxNavRinasakClient: EuxNavRinasakClient
+    val euxNavRinasakClient: EuxNavRinasakClient,
+    val repository: FeilregistreringRepository,
+    val context: TokenContextService
 ) {
 
     val log = logger {}
@@ -34,11 +37,12 @@ class FeilregistrerJournalpostService(
 
     fun DokumentPair.feilregistrer(): Feilregistrering {
         log.info { "Feilregistrerer dokument." }
-        return when (journalpost.journalposttype) {
+        val feilregistrering = when (journalpost.journalposttype) {
             I -> settStatusAvbryt()
             U -> tildelEnhetsnr()
             else -> ukjentJournalposttype()
         }
+        return repository.save(feilregistrering)
     }
 
     fun DokumentPair.settStatusAvbryt() =
@@ -50,7 +54,8 @@ class FeilregistrerJournalpostService(
                 feilregistreringStatus = SATT_TIL_STATUS_AVBRYT,
                 beskrivelse = beskrivelse,
                 dokumentInfoId = dokument.dokumentInfoId,
-                journalpostId = journalpost.journalpostId
+                journalpostId = journalpost.journalpostId,
+                opprettetBruker = context.navIdent
             )
         } catch (e: RuntimeException) {
             val beskrivelse = "Kunne ikke sette til status avbryt"
@@ -59,7 +64,8 @@ class FeilregistrerJournalpostService(
                 feilregistreringStatus = FEILREGISTRERING_FEILET,
                 beskrivelse = beskrivelse,
                 dokumentInfoId = dokument.dokumentInfoId,
-                journalpostId = journalpost.journalpostId
+                journalpostId = journalpost.journalpostId,
+                opprettetBruker = context.navIdent
             )
         }
 
@@ -75,7 +81,8 @@ class FeilregistrerJournalpostService(
                 feilregistreringStatus = OPPGAVE_FLYTTET,
                 beskrivelse = beskrivelse,
                 dokumentInfoId = dokument.dokumentInfoId,
-                journalpostId = journalpost.journalpostId
+                journalpostId = journalpost.journalpostId,
+                opprettetBruker = context.navIdent
             )
         } catch (e: RuntimeException) {
             val beskrivelse = "Kunne ikke flytte oppgave"
@@ -84,7 +91,8 @@ class FeilregistrerJournalpostService(
                 feilregistreringStatus = OPPGAVEFLYTT_FEILET,
                 beskrivelse = beskrivelse,
                 dokumentInfoId = dokument.dokumentInfoId,
-                journalpostId = journalpost.journalpostId
+                journalpostId = journalpost.journalpostId,
+                opprettetBruker = context.navIdent
             )
         }
 
@@ -95,7 +103,8 @@ class FeilregistrerJournalpostService(
             feilregistreringStatus = FEILREGISTRERING_FEILET,
             beskrivelse = beskrivelse,
             dokumentInfoId = dokument.dokumentInfoId,
-            journalpostId = journalpost.journalpostId
+            journalpostId = journalpost.journalpostId,
+            opprettetBruker = context.navIdent
         )
     }
 

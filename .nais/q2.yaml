@@ -29,12 +29,12 @@ client:
 
   saf:
     host: saf-q2.dev-fss-pub.nais.io
-    url: https://saf-q2.dev-fss-pub.nais.io
+    endpoint: https://saf-q2.dev-fss-pub.nais.io
     scope: api://dev-fss.teamdokumenthandtering.saf/.default
 
   dokarkiv:
     host: dokarkiv-q2.dev-fss-pub.nais.io
-    url: https://dokarkiv-q2.dev-fss-pub.nais.io
+    endpoint: https://dokarkiv-q2.dev-fss-pub.nais.io
     scope: api://dev-fss.teamdokumenthandtering.dokarkiv/.default
 
 cluster:

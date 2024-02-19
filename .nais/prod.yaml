@@ -14,6 +14,10 @@ application:
     name: eux-fagmodul-journalfoering
     namespace: eessibasis
 
+  eux-oppgave:
+    name: eux-oppgave
+    namespace: eessibasis
+
 client:
   euxnavrinasak:
     url: http://eux-nav-rinasak
@@ -24,10 +28,12 @@ client:
     scope: api://dev-gcp.eessibasis.eux-oppgave/.default
 
   saf:
+    host: saf.prod-fss-pub.nais.io
     url: https://saf.prod-fss-pub.nais.io
     scope: api://prod-fss.teamdokumenthandtering.saf/.default
 
   dokarkiv:
+    host: dokarkiv.prod-fss-pub.nais.io
     url: https://dokarkiv.prod-fss-pub.nais.io
     scope: api://prod-fss.teamdokumenthandtering.dokarkiv/.default
 

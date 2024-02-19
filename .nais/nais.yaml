@@ -57,6 +57,21 @@ spec:
       autoLogin: true
       autoLoginIgnorePaths:
         - /api/**
+  accessPolicy:
+    inbound:
+      rules:
+        - application: {{ application.eux-neessi.name }}
+          namespace: {{ application.eux-neessi.namespace }}
+          cluster: {{ cluster.gcp }}
+        - application: {{ application.eux-fagmodul-journalfoering.name }}
+          namespace: {{ application.eux-fagmodul-journalfoering.namespace }}
+          cluster: {{ cluster.fss }}
+    outbound:
+      external:
+        - host: {{ application.saf.host }}
+        - host: {{ application.dokarkiv.host }}
+      rules:
+        - application: {{ application.eux-oppgave.name }}
   env:
     - name: CLIENT_EUXNAVRINASAK_ENDPOINT
       value: {{ client.euxnavrinasak.endpoint }}

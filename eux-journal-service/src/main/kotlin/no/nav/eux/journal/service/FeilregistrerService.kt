@@ -38,8 +38,8 @@ class FeilregistrerJournalpostService(
     fun DokumentPair.feilregistrer(): Feilregistrering {
         log.info { "Feilregistrerer dokument." }
         val feilregistrering = when (journalpost.journalposttype) {
-            I -> settStatusAvbryt()
-            U -> tildelEnhetsnr()
+            U -> settStatusAvbryt()
+            I -> tildelEnhetsnr()
             else -> ukjentJournalposttype()
         }
         return repository.save(feilregistrering)

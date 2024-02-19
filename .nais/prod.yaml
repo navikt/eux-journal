@@ -18,6 +18,10 @@ application:
     name: eux-oppgave
     namespace: eessibasis
 
+  eux-nav-rinasak:
+    name: eux-nav-rinasak
+    namespace: eessibasis
+
 client:
   euxnavrinasak:
     url: http://eux-nav-rinasak

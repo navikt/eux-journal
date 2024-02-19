@@ -18,6 +18,10 @@ application:
     name: eux-oppgave-q2
     namespace: eessibasis
 
+  eux-nav-rinasak:
+    name: eux-nav-rinasak-q2
+    namespace: eessibasis
+
 client:
   euxnavrinasak:
     endpoint: http://eux-nav-rinasak-q2

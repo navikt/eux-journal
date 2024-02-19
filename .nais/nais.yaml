@@ -68,8 +68,8 @@ spec:
           cluster: {{ cluster.fss }}
     outbound:
       external:
-        - host: {{ application.saf.host }}
-        - host: {{ application.dokarkiv.host }}
+        - host: {{ client.saf.host }}
+        - host: {{ client.dokarkiv.host }}
       rules:
         - application: {{ application.eux-oppgave.name }}
   env:

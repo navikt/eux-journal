@@ -20,7 +20,7 @@ class RinasakerTest : AbstractOppgaverApiImplTest() {
         assertThat(createResponse.statusCode.value()).isEqualTo(200)
         assertThat(requestBodies["/rest/journalpostapi/v1/journalpost/453802638/feilregistrer/settStatusAvbryt"])
             .isNotNull()
-        assertThat(requestBodies["/api/v1/oppgave/tildelEnhetsnr"])
+        assertThat(requestBodies["/api/v1/oppgaver/tildelEnhetsnr"])
             .isNotNull()
     }
 }

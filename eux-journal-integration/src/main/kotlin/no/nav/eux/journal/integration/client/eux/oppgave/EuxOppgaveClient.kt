@@ -17,7 +17,7 @@ class EuxOppgaveClient(
     fun tildelEnhetsnr(journalpostId: String, enhetsnr: String) {
         euxOppgaveRestTemplate
             .post()
-            .uri("${euxOppgaveUrl}/api/v1/oppgave/tildelEnhetsnr")
+            .uri("${euxOppgaveUrl}/api/v1/oppgaver/tildelEnhetsnr")
             .body(TildelEnhetsnr(journalpostId = journalpostId, tildeltEnhetsnr = enhetsnr))
             .contentType(APPLICATION_JSON)
             .accept(MediaType.ALL)

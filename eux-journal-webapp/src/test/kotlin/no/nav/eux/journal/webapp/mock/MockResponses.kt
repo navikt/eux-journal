@@ -19,7 +19,7 @@ fun mockResponsePost(request: RecordedRequest, body: String) =
         "/oauth2/v2.0/token" -> tokenResponse()
         "/graphql" -> safResponse(body)
         "/api/v1/oppgaver" -> oppgaverResponse()
-        "/api/v1/oppgave/tildelEnhetsnr" -> tildelEnhetsnrResponse(body)
+        "/api/v1/oppgaver/tildelEnhetsnr" -> tildelEnhetsnrResponse(body)
         else -> defaultResponse()
     }
 

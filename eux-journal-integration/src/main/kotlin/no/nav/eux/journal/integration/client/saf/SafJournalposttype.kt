@@ -9,8 +9,3 @@ enum class SafJournalposttype {
     UKJENT;
 
 }
-
-fun safJournalposttypeOf(name: String) =
-    SafJournalposttype.values()
-        .firstOrNull { journalposttype: SafJournalposttype -> journalposttype.name == name }
-        ?: SafJournalposttype.UKJENT

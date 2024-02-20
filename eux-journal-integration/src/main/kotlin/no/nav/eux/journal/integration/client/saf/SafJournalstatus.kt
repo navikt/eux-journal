@@ -17,7 +17,3 @@ enum class SafJournalstatus(
     @JsonEnumDefaultValue
     UKJENT(false)
 }
-
-fun safJournalstatusOf(name: String) = SafJournalstatus.values()
-    .firstOrNull { safJournalstatus: SafJournalstatus -> safJournalstatus.name == name }
-    ?: SafJournalstatus.UKJENT

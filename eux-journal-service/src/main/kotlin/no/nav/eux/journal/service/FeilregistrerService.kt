@@ -55,7 +55,8 @@ class FeilregistrerJournalpostService(
                 beskrivelse = beskrivelse,
                 dokumentInfoId = dokument.dokumentInfoId,
                 journalpostId = journalpost.journalpostId,
-                opprettetBruker = context.navIdent
+                sedId = dokument.sedId,
+                opprettetBruker = context.navIdent,
             )
         } catch (e: RuntimeException) {
             val beskrivelse = "Kunne ikke sette til status avbryt"
@@ -65,6 +66,7 @@ class FeilregistrerJournalpostService(
                 beskrivelse = beskrivelse,
                 dokumentInfoId = dokument.dokumentInfoId,
                 journalpostId = journalpost.journalpostId,
+                sedId = dokument.sedId,
                 opprettetBruker = context.navIdent
             )
         }
@@ -82,6 +84,7 @@ class FeilregistrerJournalpostService(
                 beskrivelse = beskrivelse,
                 dokumentInfoId = dokument.dokumentInfoId,
                 journalpostId = journalpost.journalpostId,
+                sedId = dokument.sedId,
                 opprettetBruker = context.navIdent
             )
         } catch (e: RuntimeException) {
@@ -92,6 +95,7 @@ class FeilregistrerJournalpostService(
                 beskrivelse = beskrivelse,
                 dokumentInfoId = dokument.dokumentInfoId,
                 journalpostId = journalpost.journalpostId,
+                sedId = dokument.sedId,
                 opprettetBruker = context.navIdent
             )
         }
@@ -104,6 +108,7 @@ class FeilregistrerJournalpostService(
             beskrivelse = beskrivelse,
             dokumentInfoId = dokument.dokumentInfoId,
             journalpostId = journalpost.journalpostId,
+            sedId = dokument.sedId,
             opprettetBruker = context.navIdent
         )
     }

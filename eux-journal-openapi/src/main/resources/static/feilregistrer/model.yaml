@@ -15,12 +15,15 @@ RinasakFeilregistreringOpenApiType:
     - status
     - dokumentInfoId
     - journalpostId
+    - sedId
     - feilregistreringBeskrivelse
   properties:
     dokumentInfoId:
       $ref: '../properties/dokument.yaml#/dokumentInfoId'
     journalpostId:
       $ref: '../properties/dokument.yaml#/journalpostId'
+    sedId:
+      $ref: '../properties/dokument.yaml#/sedId'
     status:
       $ref: '../properties/journalpost.yaml#/feilregistreringStatus'
     beskrivelse:

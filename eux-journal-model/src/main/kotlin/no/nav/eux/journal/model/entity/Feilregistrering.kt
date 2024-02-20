@@ -15,6 +15,7 @@ data class Feilregistrering(
     val beskrivelse: String,
     val dokumentInfoId: String,
     val journalpostId: String,
+    val sedId: UUID,
     @Column(updatable = false)
     val opprettetBruker: String,
     @Column(updatable = false)

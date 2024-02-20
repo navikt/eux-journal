@@ -24,21 +24,21 @@ application:
 
 client:
   euxnavrinasak:
-    url: http://eux-nav-rinasak
+    endpoint: http://eux-nav-rinasak
     scope: api://prod-gcp.eessibasis.eux-nav-rinasak/.default
 
   euxoppgave:
     endpoint: http://eux-oppgave
-    scope: api://dev-gcp.eessibasis.eux-oppgave/.default
+    scope: api://prod-gcp.eessibasis.eux-oppgave/.default
 
   saf:
     host: saf.prod-fss-pub.nais.io
-    url: https://saf.prod-fss-pub.nais.io
+    endpoint: https://saf.prod-fss-pub.nais.io
     scope: api://prod-fss.teamdokumenthandtering.saf/.default
 
   dokarkiv:
     host: dokarkiv.prod-fss-pub.nais.io
-    url: https://dokarkiv.prod-fss-pub.nais.io
+    endpoint: https://dokarkiv.prod-fss-pub.nais.io
     scope: api://prod-fss.teamdokumenthandtering.dokarkiv/.default
 
 cluster:

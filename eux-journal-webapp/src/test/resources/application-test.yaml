@@ -35,7 +35,7 @@ no.nav.security.jwt:
           client-secret: testsecret
           client-auth-method: client_secret_basic
 
-      oppgave-credentials-client-secret-basic:
+      dokarkiv-client-secret-basic-credentials:
         token-endpoint-url: http://localhost:9500/mock/oauth2/v2.0/token
         grant-type: urn:ietf:params:oauth:grant-type:jwt-bearer
         scope: test
@@ -44,7 +44,7 @@ no.nav.security.jwt:
           client-secret: testsecret
           client-auth-method: client_secret_basic
 
-      oppgave-credentials-private-key-jwt:
+      dokarkiv-private-key-jwt-credentials:
         token-endpoint-url: http://localhost:9500/mock/oauth2/v2.0/token
         grant-type: client_credentials
         scope: test

@@ -21,7 +21,7 @@ class EuxOppgaveClient(
             .body(TildelEnhetsnr(
                 journalpostId = journalpostId,
                 tildeltEnhetsnr = enhetsnr,
-                kommentar = OppgavePatchKommentar(tekst = kommentar)
+                kommentar = kommentar
             ))
             .contentType(APPLICATION_JSON)
             .accept(MediaType.ALL)

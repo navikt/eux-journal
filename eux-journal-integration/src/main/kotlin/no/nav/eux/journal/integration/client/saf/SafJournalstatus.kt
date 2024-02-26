@@ -14,7 +14,11 @@ enum class SafJournalstatus(
     FEILREGISTRERT(false),
     MOTTATT(false),
     UNDER_ARBEID(false),
+    OPPLASTING_DOKUMENT(false),
+    RESERVERT(false),
 
     @JsonEnumDefaultValue
     UKJENT(false)
 }
+
+

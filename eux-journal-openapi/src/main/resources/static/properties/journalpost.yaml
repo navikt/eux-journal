@@ -6,6 +6,7 @@ feilregistreringStatus:
     - SATT_TIL_STATUS_AVBRYT
     - OPPGAVE_FLYTTET
     - FEILREGISTRERING_FEILET
+    - OPPGAVEFLYTT_FEILET
 
 feilregistreringBeskrivelse:
   type: string

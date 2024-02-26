@@ -15,3 +15,5 @@ tags:
 paths:
   '/rinasaker/{rinasakId}/journalposter/feilregistrer':
     $ref: 'feilregistrer/operations_rot.yaml'
+  '/journalposter/settStatusAvbryt':
+    $ref: 'journalposter/operations_rot.yaml'

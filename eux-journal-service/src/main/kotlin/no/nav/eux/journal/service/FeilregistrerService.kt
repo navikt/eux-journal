@@ -113,6 +113,20 @@ class FeilregistrerJournalpostService(
         )
     }
 
+    fun settStatusAvbryt(journalpostIder: List<String>) =
+        journalpostIder
+            .forEach { settStatusAvbryt(it) }
+
+    fun settStatusAvbryt(journalpostId: String) {
+        try {
+            mdc(journalpostId = journalpostId)
+            dokarkivClient.settStatusAvbryt(journalpostId)
+            log.info { "Journalpost satt til avbryt" }
+        } catch (e: RuntimeException) {
+            log.error(e) { "Kunne ikke sett status avbryt mot dokarkiv." }
+        }
+    }
+
     infix fun Dokument.med(journalpost: SafJournalpost?) =
         if (journalpost == null) {
             log.error { "Dokument mangler journalpost." }

@@ -20,5 +20,3 @@ enum class SafJournalstatus(
     @JsonEnumDefaultValue
     UKJENT(false)
 }
-
-

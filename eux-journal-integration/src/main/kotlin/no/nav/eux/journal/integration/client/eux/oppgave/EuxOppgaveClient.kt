@@ -14,11 +14,15 @@ class EuxOppgaveClient(
     val euxOppgaveRestTemplate: RestTemplate
 ) {
 
-    fun tildelEnhetsnr(journalpostId: String, enhetsnr: String) {
+    fun tildelEnhetsnr(journalpostId: String, enhetsnr: String, kommentar: String) {
         euxOppgaveRestTemplate
             .post()
             .uri("${euxOppgaveUrl}/api/v1/oppgaver/tildelEnhetsnr")
-            .body(TildelEnhetsnr(journalpostId = journalpostId, tildeltEnhetsnr = enhetsnr))
+            .body(TildelEnhetsnr(
+                journalpostId = journalpostId,
+                tildeltEnhetsnr = enhetsnr,
+                kommentar = kommentar
+            ))
             .contentType(APPLICATION_JSON)
             .accept(MediaType.ALL)
             .retrieve()

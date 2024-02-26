@@ -76,6 +76,7 @@ class FeilregistrerJournalpostService(
             euxOppgaveClient.tildelEnhetsnr(
                 journalpostId = journalpost.journalpostId,
                 enhetsnr = navDriftOgUtviklingAdministrativeTjenester,
+                kommentar = kommentarMottattSedKanIkkeJournalfores
             )
             val beskrivelse = "Oppgave flyttet til enhetsnr $navDriftOgUtviklingAdministrativeTjenester."
             log.info { beskrivelse }
@@ -123,7 +124,7 @@ class FeilregistrerJournalpostService(
             dokarkivClient.settStatusAvbryt(journalpostId)
             log.info { "Journalpost satt til avbryt" }
         } catch (e: RuntimeException) {
-            log.error(e) { "Kunne ikke sett status avbryt mot dokarkiv." }
+            log.error(e) { "Kunne ikke sette status avbryt mot dokarkiv." }
         }
     }
 
@@ -143,3 +144,5 @@ data class DokumentPair(
 )
 
 const val navDriftOgUtviklingAdministrativeTjenester = "2950"
+const val kommentarMottattSedKanIkkeJournalfores = "Den mottatte SEDen kan ikke journalføres. " +
+        "Dokumentet skal derfor settes til 'utgått' i Joark."

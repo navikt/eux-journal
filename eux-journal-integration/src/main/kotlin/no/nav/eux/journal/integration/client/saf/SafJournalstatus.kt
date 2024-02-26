@@ -13,6 +13,7 @@ enum class SafJournalstatus(
     UKJENT_BRUKER(true),
     FEILREGISTRERT(false),
     MOTTATT(false),
+    UNDER_ARBEID(false),
 
     @JsonEnumDefaultValue
     UKJENT(false)

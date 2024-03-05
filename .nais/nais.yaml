@@ -72,7 +72,7 @@ spec:
         - host: {{ client.dokarkiv.host }}
       rules:
         - application: {{ application.eux-oppgave.name }}
-        - application: {{ application.eux-journal.name }}
+        - application: {{ application.eux-nav-rinasak-datasync.name }}
         - application: {{ application.eux-nav-rinasak.name }}
   env:
     - name: CLIENT_EUXNAVRINASAK_ENDPOINT

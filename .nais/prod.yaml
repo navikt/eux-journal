@@ -18,8 +18,8 @@ application:
     name: eux-oppgave
     namespace: eessibasis
 
-  eux-journal:
-    name: eux-journal
+  eux-nav-rinasak-datasync:
+    name: eux-nav-rinasak-datasync
     namespace: eessibasis
 
   eux-nav-rinasak:

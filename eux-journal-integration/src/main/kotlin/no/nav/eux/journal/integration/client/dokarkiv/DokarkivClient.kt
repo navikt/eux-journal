@@ -27,8 +27,14 @@ class DokarkivClient(
         dokarkivRestTemplate
             .patch()
             .uri("${uri}/${journalpostId}/ferdigstill")
+            .body(FerdigstillBody())
+            .contentType(MediaType.APPLICATION_JSON)
             .accept(MediaType.ALL)
             .retrieve()
             .toBodilessEntity()
     }
+
+    data class FerdigstillBody(
+        val journalfoerendeEnhet: String = "9999"
+    )
 }

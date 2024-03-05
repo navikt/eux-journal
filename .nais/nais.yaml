@@ -66,13 +66,15 @@ spec:
         - application: {{ application.eux-fagmodul-journalfoering.name }}
           namespace: {{ application.eux-fagmodul-journalfoering.namespace }}
           cluster: {{ cluster.fss }}
+        - application: {{ application.eux-nav-rinasak-datasync.name }}
+          namespace: {{ application.eux-nav-rinasak-datasync.namespace }}
+          cluster: {{ cluster.gcp }}
     outbound:
       external:
         - host: {{ client.saf.host }}
         - host: {{ client.dokarkiv.host }}
       rules:
         - application: {{ application.eux-oppgave.name }}
-        - application: {{ application.eux-nav-rinasak-datasync.name }}
         - application: {{ application.eux-nav-rinasak.name }}
   env:
     - name: CLIENT_EUXNAVRINASAK_ENDPOINT

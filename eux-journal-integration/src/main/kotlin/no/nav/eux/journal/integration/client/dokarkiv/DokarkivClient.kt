@@ -22,4 +22,13 @@ class DokarkivClient(
             .retrieve()
             .toBodilessEntity()
     }
+
+    fun ferdigstill(journalpostId: String) {
+        dokarkivRestTemplate
+            .patch()
+            .uri("${uri}/${journalpostId}/ferdigstill")
+            .accept(MediaType.ALL)
+            .retrieve()
+            .toBodilessEntity()
+    }
 }

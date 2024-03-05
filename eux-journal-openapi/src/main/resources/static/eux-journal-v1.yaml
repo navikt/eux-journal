@@ -17,3 +17,5 @@ paths:
     $ref: 'feilregistrer/operations_rot.yaml'
   '/journalposter/settStatusAvbryt':
     $ref: 'journalposter/operations_rot.yaml'
+  '/journalposter/{journalpostId}/ferdigstill':
+    $ref: 'ferdigstill/operations_rot.yaml'

@@ -18,6 +18,10 @@ application:
     name: eux-oppgave-q2
     namespace: eessibasis
 
+  eux-journal:
+    name: eux-journal-q2
+    namespace: eessibasis
+
   eux-nav-rinasak:
     name: eux-nav-rinasak-q2
     namespace: eessibasis

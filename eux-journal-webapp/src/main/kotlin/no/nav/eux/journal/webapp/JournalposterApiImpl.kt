@@ -22,6 +22,7 @@ class JournalposterApiImpl(
             .settStatusAvbryt(settStatusAvbrytRequestOpenApiType.journalpostIder)
             .toEmptyResponseEntity()
 
+    @Protected
     override fun ferdigstillJournalpost(journalpostId: String) =
         ferdigstillJournalpostService
             .mdc(journalpostId = journalpostId)

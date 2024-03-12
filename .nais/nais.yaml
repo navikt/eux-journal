@@ -57,6 +57,10 @@ spec:
       autoLogin: true
       autoLoginIgnorePaths:
         - /api/**
+  observability:
+    autoInstrumentation:
+      enabled: true
+      runtime: java
   accessPolicy:
     inbound:
       rules:

@@ -26,6 +26,7 @@ class JournalposterApiImpl(
     override fun ferdigstillJournalpost(journalpostId: String) =
         ferdigstillJournalpostService
             .mdc(journalpostId = journalpostId)
+            .also { println("what?") }
             .ferdigstill(journalpostId)
             .toEmptyResponseEntity()
 }

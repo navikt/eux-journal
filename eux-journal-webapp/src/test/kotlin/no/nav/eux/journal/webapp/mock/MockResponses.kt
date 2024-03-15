@@ -25,7 +25,8 @@ fun mockResponsePost(request: RecordedRequest, body: String) =
 
 fun mockResponsePatch(request: RecordedRequest) =
     when (request.uriEndsWith) {
-        "/journalpost/453802638/feilregistrer/settStatusAvbryt" -> postSettStatusAvbrytResponse()
+        "/journalpost/453802638/feilregistrer/settStatusAvbryt" -> response200()
+        "/journalpost/453802638/ferdigstill" -> response200()
         "/api/v1/oppgaver/190402" -> oppgaverResponse()
         else -> defaultResponse()
     }

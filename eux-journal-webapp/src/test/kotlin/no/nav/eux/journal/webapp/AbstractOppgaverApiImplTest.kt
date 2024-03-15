@@ -1,6 +1,7 @@
 package no.nav.eux.journal.webapp
 
 import no.nav.eux.journal.Application
+import no.nav.eux.journal.webapp.common.httpEntity
 import no.nav.eux.journal.webapp.common.voidHttpEntity
 import no.nav.eux.journal.webapp.mock.RequestBodies
 import no.nav.security.mock.oauth2.MockOAuth2Server
@@ -9,6 +10,7 @@ import org.junit.jupiter.api.BeforeEach
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.web.client.TestRestTemplate
+import org.springframework.http.HttpEntity
 import org.springframework.jdbc.core.JdbcTemplate
 import org.springframework.test.context.ActiveProfiles
 import org.springframework.test.jdbc.JdbcTestUtils
@@ -39,6 +41,9 @@ abstract class AbstractOppgaverApiImplTest {
             jdbcTemplate,
         )
     }
+
+    val <T> T.httpEntity: HttpEntity<T>
+        get() = httpEntity(mockOAuth2Server)
 
     fun httpEntity() = voidHttpEntity(mockOAuth2Server)
 }

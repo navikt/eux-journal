@@ -47,7 +47,7 @@ client:
   dokarkiv:
     host: dokarkiv-q1.dev-fss-pub.nais.io
     endpoint: https://dokarkiv-q1.dev-fss-pub.nais.io
-    scope: api://dev-fss.teamdokumenthandtering.dokarkiv/.default
+    scope: api://dev-fss.teamdokumenthandtering.dokarkiv-q1/.default
 
 cluster:
   fss: dev-fss

@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Value
 import org.springframework.http.MediaType.APPLICATION_JSON
 import org.springframework.stereotype.Component
 import org.springframework.web.client.RestTemplate
-import org.springframework.web.client.toEntity
+import org.springframework.web.client.body
 
 @Component
 class SafClient(
@@ -14,7 +14,7 @@ class SafClient(
     val safRestTemplate: RestTemplate
 ) {
 
-    fun safSakerRoot(fnr: String): SafSakerRoot =
+    fun safSakerRoot(fnr: String): List<SafSak> =
         safRestTemplate
             .post()
             .uri("$safUrl/graphql")
@@ -22,10 +22,11 @@ class SafClient(
             .contentType(APPLICATION_JSON)
             .accept(APPLICATION_JSON)
             .retrieve()
-            .toEntity<SafSakerRoot>()
-            .body!!
+            .body<SafRoot<SafSakerData>>()
+            .safData()
+            .saker
 
-    fun safJournalpost(journalpostId: String): SafJournalpostRoot =
+    fun safJournalpost(journalpostId: String): SafJournalpost =
         safRestTemplate
             .post()
             .uri("$safUrl/graphql")
@@ -33,16 +34,15 @@ class SafClient(
             .contentType(APPLICATION_JSON)
             .accept(APPLICATION_JSON)
             .retrieve()
-            .toEntity<SafJournalpostRoot>()
-            .body!!
+            .body<SafRoot<SafJournalpostData>>()
+            .safData()
+            .journalpost
 
     fun firstTilknyttetJournalpostOrNull(dokumentInfoId: String): SafJournalpost? =
         tilknyttedeJournalposterRoot(dokumentInfoId)
-            .data
-            .tilknyttedeJournalposter
             .firstOrNull()
 
-    fun tilknyttedeJournalposterRoot(dokumentInfoId: String): SafTilknyttedeJournalposterRoot =
+    fun tilknyttedeJournalposterRoot(dokumentInfoId: String): List<SafJournalpost> =
         safRestTemplate
             .post()
             .uri("$safUrl/graphql")
@@ -50,8 +50,18 @@ class SafClient(
             .contentType(APPLICATION_JSON)
             .accept(APPLICATION_JSON)
             .retrieve()
-            .toEntity<SafTilknyttedeJournalposterRoot>()
-            .body!!
+            .body<SafRoot<SafTilknyttedeJournalposterData>>()
+            .safData()
+            .tilknyttedeJournalposter
+
+    fun <T> SafRoot<T>?.safData(): T =
+        when (this!!.data) {
+            null -> throw SafErrorException(
+                "Feil fra SAF: ${errors?.joinToString { it.message }}",
+                errors ?: emptyList()
+            )
+            else -> data!!
+        }
 }
 
 fun journalpostQuery(journalpostId: String) = GraphQlQuery(

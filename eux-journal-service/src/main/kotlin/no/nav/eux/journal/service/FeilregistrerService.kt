@@ -13,6 +13,7 @@ import no.nav.eux.journal.model.entity.Feilregistrering
 import no.nav.eux.journal.model.entity.FeilregistreringStatus.*
 import no.nav.eux.journal.persistence.FeilregistreringRepository
 import org.springframework.stereotype.Component
+import no.nav.eux.logging.mdc
 
 @Component
 class FeilregistrerJournalpostService(

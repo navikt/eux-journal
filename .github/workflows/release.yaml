@@ -120,7 +120,6 @@ jobs:
           VARS: .nais/q2.yaml
           PRINT_PAYLOAD: true
 
-
   prod:
     name: 'Deploy to prod'
     runs-on: ubuntu-latest

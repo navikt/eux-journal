@@ -1,6 +1,6 @@
 post:
   tags:
-    - Journalpost API
+    - Journalposter
   summary: Sett Status Avbryt
   operationId: settStatusAvbryt
   description: Sett alle journalposter til avbryt

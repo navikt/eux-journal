@@ -12,8 +12,26 @@
   content:
     'application/json':
       schema:
-        $ref: '../common/responses.yaml#/ResponseStateType'
+        oneOf:
+          - $ref: '#/ResponseStateType'
+          - $ref: '#/DokarkivErrorResponseType'
       examples:
+        dokarkivError:
+          value:
+            type: "about:blank"
+            title: "Bad Request"
+            status: 400
+            detail: >
+              Kunne ikke ferdigstille journalpost med journalpostId=687486202. 
+              Journalposten mangler følgende felter: avsenderMottaker.navn
+            instance: "/rest/journalpostapi/v1/journalpost/687486202/ferdigstill"
+            timestamp: "2025-03-17T01:02:16.269358384+01:00"
+            message: >
+              Kunne ikke ferdigstille journalpost med journalpostId=687486202. 
+              Journalposten mangler følgende felter: avsenderMottaker.navn
+            error: "Bad Request"
+            path: "/rest/journalpostapi/v1/journalpost/687486202/ferdigstill"
+          summary: Error from Dokarkiv when missing required fields
         invalidRequest:
           value:
             message: The request is invalid.
@@ -138,3 +156,55 @@ ResponseStateType:
     errorKey: NOT_FOUND
     originatingSystem: EUX
     constraintViolations: { }
+
+DokarkivErrorResponseType:
+  type: object
+  properties:
+    type:
+      type: string
+      description: Type of the error
+    title:
+      type: string
+      description: Title of the error
+    status:
+      type: integer
+      description: HTTP status code
+    detail:
+      type: string
+      description: Detailed description of the error
+    instance:
+      type: string
+      description: Path of the endpoint that generated the error
+    timestamp:
+      type: string
+      format: date-time
+      description: When the error occurred
+    message:
+      type: string
+      description: Error message
+    error:
+      type: string
+      description: Error type
+    path:
+      type: string
+      description: Request path
+  required:
+    - type
+    - title
+    - status
+    - detail
+    - message
+  example:
+    type: "about:blank"
+    title: "Bad Request"
+    status: 400
+    detail: >
+      Kunne ikke ferdigstille journalpost med journalpostId=687486202. 
+      Journalposten mangler følgende felter: avsenderMottaker.navn
+    instance: "/rest/journalpostapi/v1/journalpost/687486202/ferdigstill"
+    timestamp: "2025-03-17T01:02:16.269358384+01:00"
+    message: >
+      Kunne ikke ferdigstille journalpost med journalpostId=687486202. 
+      Journalposten mangler følgende felter: avsenderMottaker.navn
+    error: "Bad Request"
+    path: "/rest/journalpostapi/v1/journalpost/687486202/ferdigstill"

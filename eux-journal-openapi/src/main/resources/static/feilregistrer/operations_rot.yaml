@@ -1,6 +1,6 @@
 post:
   tags:
-    - Eux Journal API
+    - Rinasaker
   summary: Feilregistrer
   operationId: feilregistrerJournalposter
   description: Feilregistrer journalposter tilhørende rinasak

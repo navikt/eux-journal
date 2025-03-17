@@ -1,6 +1,6 @@
 patch:
   tags:
-    - Eux Journal API
+    - Journalposter
   summary: Ferdigstill
   operationId: ferdigstillJournalpost
   description: Ferdigstiller journalposten i joark

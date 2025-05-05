@@ -52,3 +52,7 @@ client:
 cluster:
   fss: prod-fss
   gcp: prod-gcp
+
+replicas:
+  min: 2
+  max: 4

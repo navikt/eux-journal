@@ -56,7 +56,6 @@ no.nav.security.jwt:
 spring:
   flyway:
     clean-disabled: false
-    clean-on-validation-error: true
 
 endpoint:
   euxnavrinasak: http://localhost:9500/mock

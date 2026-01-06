@@ -23,8 +23,4 @@ class JournalposterTest : AbstractOppgaverApiImplTest() {
             .isNotNull()
     }
 
-    @Test
-    fun `POST ferdigstillJournalpost - 204`() {
-
-    }
 }

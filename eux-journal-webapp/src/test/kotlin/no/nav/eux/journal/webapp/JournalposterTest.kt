@@ -4,7 +4,7 @@ import no.nav.eux.journal.webapp.common.settStatusAvbrytUrl
 import no.nav.eux.journal.webapp.dataset.testModelSettStatusAvbrytRequest
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
-import org.springframework.boot.test.web.client.postForEntity
+import org.springframework.boot.resttestclient.postForEntity
 
 class JournalposterTest : AbstractOppgaverApiImplTest() {
 

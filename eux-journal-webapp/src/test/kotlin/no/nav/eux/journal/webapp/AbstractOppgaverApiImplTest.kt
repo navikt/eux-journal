@@ -8,8 +8,9 @@ import no.nav.security.mock.oauth2.MockOAuth2Server
 import no.nav.security.token.support.spring.test.EnableMockOAuth2Server
 import org.junit.jupiter.api.BeforeEach
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.boot.resttestclient.TestRestTemplate
+import org.springframework.boot.resttestclient.autoconfigure.AutoConfigureTestRestTemplate
 import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.boot.test.web.client.TestRestTemplate
 import org.springframework.http.HttpEntity
 import org.springframework.jdbc.core.JdbcTemplate
 import org.springframework.test.context.ActiveProfiles
@@ -21,6 +22,7 @@ import org.springframework.test.jdbc.JdbcTestUtils
 )
 @ActiveProfiles("test")
 @EnableMockOAuth2Server
+@AutoConfigureTestRestTemplate
 abstract class AbstractOppgaverApiImplTest {
 
     @Autowired
@@ -42,7 +44,7 @@ abstract class AbstractOppgaverApiImplTest {
         )
     }
 
-    val <T> T.httpEntity: HttpEntity<T>
+    val <T: Any> T.httpEntity: HttpEntity<T>
         get() = httpEntity(mockOAuth2Server)
 
     fun httpEntity() = voidHttpEntity(mockOAuth2Server)

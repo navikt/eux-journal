@@ -9,7 +9,7 @@ Integrasjoner mellom EUX og NAV journal
 
 #### Avhengigheter
 
-* JDK 21
+* JDK 25
 
 #### Kjøring av tester lokalt
 

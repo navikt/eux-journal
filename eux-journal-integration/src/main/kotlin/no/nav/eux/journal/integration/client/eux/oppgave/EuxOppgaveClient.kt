@@ -9,7 +9,7 @@ import org.springframework.web.client.RestTemplate
 
 @Component
 class EuxOppgaveClient(
-    @Value("\${endpoint.euxoppgave}")
+    @param:Value("\${endpoint.euxoppgave}")
     val euxOppgaveUrl: String,
     val euxOppgaveRestTemplate: RestTemplate
 ) {

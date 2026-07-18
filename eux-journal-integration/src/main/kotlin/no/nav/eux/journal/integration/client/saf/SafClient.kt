@@ -60,7 +60,7 @@ class SafClient(
                 "Feil fra SAF: ${errors?.joinToString { it.message }}",
                 errors ?: emptyList()
             )
-            else -> data!!
+            else -> data
         }
 }
 

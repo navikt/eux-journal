@@ -7,11 +7,11 @@ fun tildelEnhetsnrResponse(body: String): MockResponse {
     val journalpostId = ObjectMapper()
         .readTree(body)
         .findValue("journalpostId")
-        .asText()
+        .asString()
     val tildeltEnhetsnr = ObjectMapper()
         .readTree(body)
         .findValue("tildeltEnhetsnr")
-        .asText()
+        .asString()
     println("Det ble utført tildeling av enhetsnr $tildeltEnhetsnr for journalpostId $journalpostId")
     return if (listOf("453802638", "453802639").contains(journalpostId) && tildeltEnhetsnr == "2950") {
         MockResponse().apply {

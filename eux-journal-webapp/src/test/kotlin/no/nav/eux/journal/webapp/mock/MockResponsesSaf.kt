@@ -6,31 +6,52 @@ import org.springframework.http.MediaType
 
 fun safResponse(body: String) =
     when {
-        body.contains("454221906") -> document454221906()
-        body.contains("454221907") -> document454221907()
-        else -> throw RuntimeException("No SAF response defined for $body}")
+        body.contains("454221906") -> resourceResponse("/dataset/saf/get-response-body-454221906.json")
+        body.contains("454221907") -> resourceResponse("/dataset/saf/get-response-body-454221907.json")
+        body.contains("454221908") -> journalpostResponse("453802640", "MOTTATT", "U", "454221908")
+        body.contains("454221909") -> journalpostResponse("453802641", "MOTTATT", "I", "454221909")
+        body.contains("454221910") -> journalpostResponse("453802642", "MOTTATT", "N", "454221910")
+        body.contains("454221911") -> journalpostResponse("453802643", "JOURNALFOERT", "U", "454221911")
+        body.contains("454221912") -> jsonResponse("""{"data":{"tilknyttedeJournalposter":[]}}""")
+        body.contains("454221913") ->
+            jsonResponse("""{"data":null,"errors":[{"message":"SAF kunne ikke hente journalpost"}]}""")
+        else -> defaultResponse()
     }
 
-fun document454221906() =
-    MockResponse().apply {
-        setResponseCode(200)
-        setHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
-        setBody(safResponseBody454221906)
+private fun journalpostResponse(
+    journalpostId: String,
+    journalstatus: String,
+    journalposttype: String,
+    dokumentInfoId: String,
+) = jsonResponse(
+    """
+    {
+      "data": {
+        "tilknyttedeJournalposter": [
+          {
+            "journalpostId": "$journalpostId",
+            "journalstatus": "$journalstatus",
+            "journalposttype": "$journalposttype",
+            "eksternReferanseId": "test",
+            "dokumenter": [
+              {
+                "dokumentInfoId": "$dokumentInfoId",
+                "tittel": "Testdokument",
+                "brevkode": "TEST"
+              }
+            ]
+          }
+        ]
+      }
     }
+    """.trimIndent()
+)
 
-fun document454221907() =
-    MockResponse().apply {
-        setResponseCode(200)
-        setHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
-        setBody(safResponseBody454221907)
-    }
+private fun resourceResponse(resource: String) =
+    jsonResponse(Any::class::class.java.getResource(resource)!!.readText())
 
-val safResponseBody454221906 =
-    Any::class::class.java
-        .getResource("/dataset/saf/get-response-body-454221906.json")!!
-        .readText()
-
-val safResponseBody454221907 =
-    Any::class::class.java
-        .getResource("/dataset/saf/get-response-body-454221907.json")!!
-        .readText()
+private fun jsonResponse(body: String) =
+    MockResponse()
+        .setResponseCode(200)
+        .setHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+        .setBody(body)

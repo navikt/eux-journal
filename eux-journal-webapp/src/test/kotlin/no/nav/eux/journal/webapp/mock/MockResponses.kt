@@ -18,25 +18,15 @@ fun mockResponsePost(request: RecordedRequest, body: String) =
     when (request.uriEndsWith) {
         "/oauth2/v2.0/token" -> tokenResponse()
         "/graphql" -> safResponse(body)
-        "/api/v1/oppgaver" -> oppgaverResponse()
         "/api/v1/oppgaver/tildelEnhetsnr" -> tildelEnhetsnrResponse(body)
         else -> defaultResponse()
     }
 
 fun mockResponsePatch(request: RecordedRequest) =
-    when (request.uriEndsWith) {
-        "/rest/journalpostapi/v1/journalpost/453802638/feilregistrer/settStatusAvbryt" -> response200()
-        "/journalpost/453802638/ferdigstill" -> response200()
-        "/api/v1/oppgaver/190402" -> oppgaverResponse()
-        else -> defaultResponse()
-    }
+    dokarkivResponse(request.uriEndsWith)
 
 fun mockResponseGet(request: RecordedRequest) =
-    when (request.uriEndsWith) {
-        "/api/v1/rinasaker/1444520" -> getEuxNavRinasakResponse()
-        getOppgaverUri -> getOppgaverResponse()
-        else -> defaultResponse()
-    }
+    getEuxNavRinasakResponse(request.uriEndsWith)
 
 fun defaultResponse() =
     MockResponse().apply {

@@ -1,0 +1,37 @@
+{
+  "rinasakId": 1444521,
+  "opprettetBruker": "ukjent",
+  "opprettetTidspunkt": "2023-12-07T14:27:20.33111Z",
+  "dokumenter": [
+    {
+      "sedId": "0eab91a0-5415-4357-8c59-3f7d7764f073",
+      "sedVersjon": 2,
+      "sedType": "H001",
+      "dokumentInfoId": "454221908"
+    },
+    {
+      "sedId": "0eab91a0-5415-4357-8c59-3f7d7764f074",
+      "sedVersjon": 2,
+      "sedType": "H001",
+      "dokumentInfoId": "454221909"
+    },
+    {
+      "sedId": "0eab91a0-5415-4357-8c59-3f7d7764f075",
+      "sedVersjon": 2,
+      "sedType": "H001",
+      "dokumentInfoId": "454221910"
+    },
+    {
+      "sedId": "0eab91a0-5415-4357-8c59-3f7d7764f076",
+      "sedVersjon": 2,
+      "sedType": "H001",
+      "dokumentInfoId": "454221911"
+    },
+    {
+      "sedId": "0eab91a0-5415-4357-8c59-3f7d7764f077",
+      "sedVersjon": 2,
+      "sedType": "H001",
+      "dokumentInfoId": "454221912"
+    }
+  ]
+}

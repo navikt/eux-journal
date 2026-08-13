@@ -1,0 +1,32 @@
+# Nav best practice — keep build context minimal, avoid leaking secrets/VCS.
+# The Dockerfile copies eux-journal-webapp/target/eux-journal.jar, so that
+# path is intentionally NOT ignored.
+
+# VCS and CI
+.git
+.github
+.gitattributes
+.gitignore
+
+# IDE and local tooling
+.idea
+*.iml
+.vscode
+
+# Source — build happens outside the Dockerfile, only the jar is needed
+**/src
+
+# Build output from modules other than the webapp
+eux-journal-openapi/target
+eux-journal-model/target
+eux-journal-integration/target
+eux-journal-persistence/target
+eux-journal-service/target
+
+# Docs
+*.md
+
+# Secrets and local config
+.env*
+**/*.local
+docker-compose*.yml

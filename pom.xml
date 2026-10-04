@@ -30,7 +30,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jackson-2-bom.version>2.22.3</jackson-2-bom.version>
         <postgresql.version>42.7.13</postgresql.version>
-        <httpcore5.version>5.4.3</httpcore5.version>
+        <httpcore5.version>5.4.4</httpcore5.version>
     </properties>
 
     <scm>
